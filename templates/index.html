@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>FOCUS - AI Attention Detection</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         TOP HEADER
+    ====================================================== -->
+
+    <header class="top-header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ◉
+            </div>
+
+            <div>
+                <h1>FOCUS</h1>
+
+                <p>
+                    AI ATTENTION MONITORING
+                </p>
+            </div>
+
+        </div>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            SYSTEM READY
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================================
+             LEFT SIDE
+        ================================================== -->
+
+        <section class="left-panel">
+
+
+            <!-- CAMERA CARD -->
+
+            <div class="card camera-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            Live Attention Monitoring
+                        </h2>
+
+                        <p>
+                            AI-powered real-time attention analysis
+                        </p>
+
+                    </div>
+
+                    <span class="live-badge">
+                        ● LIVE
+                    </span>
+
+                </div>
+
+
+                <!-- CAMERA -->
+
+                <div class="camera-container">
+
+                    <div id="cameraMessage"
+                        class="camera-message">
+
+                        <div class="camera-icon">
+                            📷
+                        </div>
+
+                        <h3>
+                            Camera Ready
+                        </h3>
+
+                        <p>
+                            Click "Start Monitoring" to begin
+                        </p>
+
+                    </div>
+
+                    <img id="camera"
+                        alt="Live Camera">
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="camera-controls">
+
+                    <button
+                        id="startBtn"
+                        class="start-btn">
+
+                        ▶ Start Monitoring
+
+                    </button>
+
+
+                    <button
+                        id="stopBtn"
+                        class="stop-btn"
+                        disabled>
+
+                        ■ Stop
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ATTENTION GRAPH
+            ================================================== -->
+
+            <div class="card graph-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <h2>
+                            Attention Analysis
+                        </h2>
+
+                        <p>
+                            Real-time attention performance
+                        </p>
+
+                    </div>
+
+                    <div
+                        id="graphScore"
+                        class="graph-score">
+
+                        0%
+
+                    </div>
+
+                </div>
+
+
+                <div class="graph-container">
+
+                    <canvas
+                        id="attentionChart">
+                    </canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RIGHT SIDE
+        ================================================== -->
+
+        <section class="right-panel">
+
+
+            <!-- CURRENT ATTENTION -->
+
+            <div class="card attention-card">
+
+                <p class="card-label">
+                    CURRENT ATTENTION
+                </p>
+
+
+                <div class="big-score">
+
+                    <span id="attentionValue">
+                        0
+                    </span>
+
+                    <small>
+                        %
+                    </small>
+
+                </div>
+
+
+                <div class="progress-container">
+
+                    <div
+                        id="attentionProgress"
+                        class="progress-bar">
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="attentionStatus"
+                    class="attention-status">
+
+                    Waiting for monitoring...
+
+                </p>
+
+            </div>
+
+
+
+            <!-- EYE STATUS -->
+
+            <div class="card information-card">
+
+                <div class="info-icon">
+                    👁️
+                </div>
+
+                <div class="info-text">
+
+                    <span>
+                        Eye Status
+                    </span>
+
+                    <strong id="eyeStatus">
+                        Waiting
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HEAD DIRECTION -->
+
+            <div class="card information-card">
+
+                <div class="info-icon">
+                    🧭
+                </div>
+
+                <div class="info-text">
+
+                    <span>
+                        Head Direction
+                    </span>
+
+                    <strong id="headDirection">
+                        Waiting
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PHONE DETECTION -->
+
+            <div class="card information-card">
+
+                <div class="info-icon phone-icon">
+                    📱
+                </div>
+
+                <div class="info-text">
+
+                    <span>
+                        Phone Detection
+                    </span>
+
+                    <strong
+                        id="phoneStatus"
+                        class="safe">
+
+                        Not Detected
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SESSION TIME -->
+
+            <div class="card information-card">
+
+                <div class="info-icon">
+                    ⏱️
+                </div>
+
+                <div class="info-text">
+
+                    <span>
+                        Session Time
+                    </span>
+
+                    <strong id="sessionTime">
+                        00:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SESSION SUMMARY -->
+
+            <div class="card summary-card">
+
+                <h2>
+                    Session Summary
+                </h2>
+
+                <p class="summary-subtitle">
+                    Your monitoring statistics
+                </p>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Average Attention
+                    </span>
+
+                    <strong id="averageAttention">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Focused Time
+                    </span>
+
+                    <strong id="focusedTime">
+                        00:00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Distractions
+                    </span>
+
+                    <strong id="distractionCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <strong>
+            FOCUS
+        </strong>
+
+        — AI-powered attention monitoring system
+
+        <br>
+
+        <span>
+            Your attention. Your productivity. Your focus.
+        </span>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>

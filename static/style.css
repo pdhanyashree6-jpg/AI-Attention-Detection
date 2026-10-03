@@ -1,0 +1,893 @@
+/* =========================================================
+   FOCUS - MAGENTA + LAVENDER + WHITE THEME
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    color: #35243f;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            #f5d8ed 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 5%,
+            #e4d7fa 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #faf7ff,
+            #f2eaff,
+            #fff7fc
+        );
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-header {
+    height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid #ead9ec;
+
+    box-shadow:
+        0 5px 25px rgba(126, 53, 116, 0.10);
+}
+
+
+/* =========================================================
+   FOCUS LOGO
+========================================================= */
+
+.brand {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 4px;
+
+    color: white;
+
+    font-size: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d62991,
+            #a84bdc
+        );
+
+    box-shadow:
+        0 5px 16px
+        rgba(190, 48, 143, 0.30);
+}
+
+
+.brand h1 {
+    font-size: 31px;
+
+    font-weight: 800;
+
+    letter-spacing: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c51b86,
+            #9a4bd3,
+            #b43a9b
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.brand p {
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #9a7ca5;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+========================================================= */
+
+.system-status {
+    position: absolute;
+
+    right: 35px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #8c7093;
+}
+
+
+.status-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #d82b91;
+
+    margin-right: 6px;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(216, 43, 145, 0.12);
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+========================================================= */
+
+.dashboard {
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(330px, 0.9fr);
+
+    gap: 25px;
+}
+
+
+.left-panel,
+.right-panel {
+    min-width: 0;
+}
+
+
+.right-panel {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   COMMON CARDS
+========================================================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid #eadff0;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(113, 61, 119, 0.09);
+}
+
+
+/* =========================================================
+   CARD HEADINGS
+========================================================= */
+
+.card-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 22px 25px;
+}
+
+
+.card-heading h2 {
+    font-size: 19px;
+
+    color: #3b2645;
+
+    margin-bottom: 5px;
+}
+
+
+.card-heading p {
+    font-size: 12px;
+
+    color: #987fa2;
+}
+
+
+/* =========================================================
+   LIVE BADGE
+========================================================= */
+
+.live-badge {
+    background: #fff0f8;
+
+    color: #d52388;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    border: 1px solid #f5d3e8;
+}
+
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+.camera-card {
+    overflow: hidden;
+}
+
+
+.camera-container {
+    position: relative;
+
+    width: calc(100% - 40px);
+
+    height: 470px;
+
+    margin: 0 20px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #21172a;
+
+    border: 3px solid #ead8ed;
+}
+
+
+#camera {
+    display: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   CAMERA READY SCREEN
+========================================================= */
+
+.camera-message {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5c2758,
+            #8e4b92,
+            #6c4a91
+        );
+}
+
+
+.camera-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+.camera-message h3 {
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+
+.camera-message p {
+    font-size: 12px;
+
+    color: #f1dff3;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.camera-controls {
+    display: flex;
+
+    gap: 12px;
+
+    padding: 20px;
+}
+
+
+.start-btn {
+    flex: 1;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d22691,
+            #b13fd0
+        );
+
+    box-shadow:
+        0 7px 20px
+        rgba(196, 40, 140, 0.25);
+
+    transition: 0.2s;
+}
+
+
+.start-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(196, 40, 140, 0.35);
+}
+
+
+.stop-btn {
+    width: 100px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f0eaf5;
+
+    color: #765d7c;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.stop-btn:hover:not(:disabled) {
+    background: #e9ddec;
+
+    color: #63366b;
+}
+
+
+.stop-btn:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ATTENTION GRAPH
+========================================================= */
+
+.graph-card {
+    margin-top: 25px;
+
+    padding-bottom: 15px;
+}
+
+
+.graph-score {
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    color: #c32388;
+
+    background: #fcebf6;
+
+    font-weight: 700;
+
+    border: 1px solid #f4d5e9;
+}
+
+
+.graph-container {
+    height: 230px;
+
+    padding: 0 25px 20px;
+}
+
+
+#attentionChart {
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   CURRENT ATTENTION
+========================================================= */
+
+.attention-card {
+    padding: 25px;
+
+    border-top: 4px solid #d02a91;
+}
+
+
+.card-label {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 700;
+
+    color: #9b819f;
+}
+
+
+.big-score {
+    margin-top: 8px;
+
+    display: flex;
+
+    align-items: baseline;
+}
+
+
+.big-score span {
+    font-size: 60px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c51b86,
+            #9e4bd1
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.big-score small {
+    font-size: 23px;
+
+    margin-left: 5px;
+
+    color: #9d8ca3;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-container {
+    width: 100%;
+
+    height: 9px;
+
+    margin-top: 18px;
+
+    background: #eee7f2;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d12892,
+            #a746cf
+        );
+
+    transition: width 0.4s;
+}
+
+
+.attention-status {
+    margin-top: 13px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #b12b83;
+}
+
+
+/* =========================================================
+   INFORMATION CARDS
+========================================================= */
+
+.information-card {
+    min-height: 78px;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    transition: 0.2s;
+}
+
+
+.information-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(113, 61, 119, 0.12);
+}
+
+
+/* =========================================================
+   INFORMATION ICON
+========================================================= */
+
+.info-icon {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5e7f5,
+            #eee3fa
+        );
+
+    border: 1px solid #ead8ed;
+}
+
+
+.info-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.info-text span {
+    font-size: 10px;
+
+    color: #9a829f;
+}
+
+
+.info-text strong {
+    font-size: 14px;
+
+    color: #3b2d42;
+}
+
+
+/* =========================================================
+   PHONE STATUS
+========================================================= */
+
+.safe {
+    color: #159b70 !important;
+}
+
+
+.phone-warning {
+    color: #d72a59 !important;
+}
+
+
+/* =========================================================
+   SESSION SUMMARY
+========================================================= */
+
+.summary-card {
+    padding: 22px;
+
+    border-top: 4px solid #b74ac9;
+}
+
+
+.summary-card h2 {
+    font-size: 17px;
+
+    color: #3b2645;
+}
+
+
+.summary-subtitle {
+    font-size: 11px;
+
+    color: #9c8aa2;
+
+    margin-top: 4px;
+
+    margin-bottom: 12px;
+}
+
+
+.summary-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #f0eaf3;
+
+    font-size: 12px;
+}
+
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+
+.summary-item span {
+    color: #927d98;
+}
+
+
+.summary-item strong {
+    color: #492e50;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 5px 20px 25px;
+
+    color: #947e99;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+footer strong {
+    color: #c32388;
+}
+
+
+footer span {
+    color: #aa96af;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .right-panel {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .attention-card {
+        grid-column: span 2;
+    }
+
+    .summary-card {
+        grid-column: span 2;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .top-header {
+        height: 105px;
+    }
+
+    .brand h1 {
+        font-size: 26px;
+
+        letter-spacing: 5px;
+    }
+
+    .brand p {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    .dashboard {
+        padding: 15px;
+    }
+
+    .camera-container {
+        height: 330px;
+
+        width: calc(100% - 24px);
+
+        margin: 0 12px;
+    }
+
+    .right-panel {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .camera-controls {
+        padding: 15px 12px;
+
+        flex-direction: column;
+    }
+
+    .stop-btn {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .brand h1 {
+        font-size: 23px;
+    }
+
+    .brand p {
+        font-size: 7px;
+    }
+
+    .card-heading {
+        padding: 18px;
+    }
+
+    .card-heading h2 {
+        font-size: 17px;
+    }
+
+    .camera-container {
+        height: 280px;
+    }
+
+    .big-score span {
+        font-size: 50px;
+    }
+}
